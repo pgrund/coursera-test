@@ -1,0 +1,24 @@
+nav navbar-nav a {
+  margin 0 auto;
+}
+#main-content {
+  height: 1000px;
+  background-color: rgb(213,227,83);
+  box-shadow: 15px 10px 10px darkgray;
+}
+#main-title {
+  text-align: center;
+}
+#main-content>section.row {
+  padding: 10px;
+}
+#main-content>section>div h2 {
+  text-align: center;
+  margin: 10px 30px;
+}
+h1 {
+  color:  rgb(213,227,83);
+  font-weight: bold;
+  text-shadow: 5px 3px black;
+  margin-bottom: 1.5em;
+}
