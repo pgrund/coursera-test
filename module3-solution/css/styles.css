@@ -1,24 +1,46 @@
 nav navbar-nav a {
   margin 0 auto;
 }
-#main-content {
-  height: 1000px;
-  background-color: rgb(213,227,83);
+.section-item{
+  position: relative;
   box-shadow: 15px 10px 10px darkgray;
+  margin: 10px 5px;
+  padding: 5px 15px;
+}
+.section-item h3 {
+  background-color: black;
+  text-transform: uppercase;
+  color: white;
+  padding: 10px 0;
+}
+
+.section-item a, .section-item a:visited {
+  color: #0e0e0e;
+  text-decoration: none;
+}
+.section-item a:hover {
+  text-shadow: 2px 2px #f0f0f0;
+}
+.section-item a:hover::before, .section-item a:hover::after {
+  font-family: 'Glyphicons Halflings';
+  font-size: .8em;
+  padding: 0 .5em;
+  content: "\e093";
+}
+#chicken .section-item {
+  background-color: rgb(213,227,83);
+}
+#beef .section-item {
+  background-color: rgb(251,195,17);
+}
+#sushi .section-item {
+  background-color: rgb(81,187,236);
 }
 #main-title {
   text-align: center;
-}
-#main-content>section.row {
-  padding: 10px;
-}
-#main-content>section>div h2 {
-  text-align: center;
-  margin: 10px 30px;
-}
-h1 {
-  color:  rgb(213,227,83);
+  background-color: black;
+  color: white;
   font-weight: bold;
-  text-shadow: 5px 3px black;
-  margin-bottom: 1.5em;
+  text-transform: uppercase;
+  padding: .5em;
 }
