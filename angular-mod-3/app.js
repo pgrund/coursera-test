@@ -13,11 +13,16 @@ function NarrowItDownController (MenuSearchService) {
 
     narrow.search = "";
     narrow.found = [];
+    narrow.error = '';
 
     narrow.filter = function() {
       MenuSearchService.getMatchedMenuItems(narrow.search)
         .then(function(response){
           narrow.found = response;
+          narrow.error = '';
+        },function(reason) {
+          narrow.error = reason;
+          narrow.found = [];
         });
     };
     narrow.remove = function(index) {
@@ -25,19 +30,25 @@ function NarrowItDownController (MenuSearchService) {
     };
 }
 
-MenuSearchService.$inject = ['$http'];
-function MenuSearchService( $http ) {
+MenuSearchService.$inject = ['$http', '$q'];
+function MenuSearchService( $http, $q ) {
   var searchService = this;
 
   searchService.getMatchedMenuItems = function (searchTerm) {
+    if(searchTerm == "") return $q.reject("empty search term");
+
     return $http({
         url : "https://davids-restaurant.herokuapp.com/menu_items.json"
       }).then(function(response) {
-        return response.data.menu_items.filter(function(item) {
+        var res = response.data.menu_items.filter(function(item) {
           return item.description.indexOf(searchTerm) >= 0;
         });
+        if (res.length == 0 ) return $q.reject("no entry found for '" + searchTerm +"'");
+        return res;
+      }, function(response){
+        console.log("error during REST call", response);
       });
-  };
+    };
 }
 
 function FoundItemsDirective() {
@@ -51,6 +62,7 @@ function FoundItemsDirective() {
     controller: FoundItemsDirectiveController,
     controllerAs: 'list',
     bindToController: true,
+    transclude: true
   };
   return ddo;
 }

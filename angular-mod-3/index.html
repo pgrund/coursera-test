@@ -19,10 +19,14 @@
       <button class="btn btn-primary" ng-click="narrow.filter()">Narrow It Down For Me!</button>
     </div>
     <br clear="all"/>
-    
-    <!-- found-items should be implemented as a component -->
-    <found-items found-items="narrow.found" on-remove="narrow.remove(idx)"></found-items>
 
+    <!-- found-items should be implemented as a component -->
+    <found-items found-items="narrow.found" on-remove="narrow.remove(idx)">
+      <div class="alert alert-warning" ng-if="narrow.error.length > 0">
+        <h3>Warning</h3>
+        <span>{{narrow.error}}</span>
+      </div>
+    </found-items>
   </div>
   <script></script>
 </body>
