@@ -3,7 +3,7 @@
     <h3>{{item.name}}</h3>
     <span class="badge">{{item.short_name}}</span>
     <p>{{item.description}}</p>
-    <button ng-click="list.onRemove({idx: $index})">Don't want this one!</button>
+    <button ng-click="list.onRemove({idx: $index})" class="btn btn-danger">Don't want this one!</button>
   </div>
   <div ng-transclude></div>
 <div>
