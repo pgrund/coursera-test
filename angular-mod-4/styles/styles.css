@@ -32,7 +32,7 @@ div.item:hover {
   border-width: thick;
 }
 div.item.menu {
-  height: 180px;
+  height: 200px;
 }
 div.item>h3 {
   text-align: center;
