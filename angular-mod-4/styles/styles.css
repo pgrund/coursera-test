@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+}
+h1 {
+  margin-bottom: 30px;
+}
+.nav.nav-pills>li {
+  padding: 5px;
+  border-radius: 10px;
+}
+.nav.nav-pills>li:hover {
+  cursor:pointer;
+}
+.nav.nav-pills>li.active {
+  font-weight: bold;
+  text-shadow: rgba(67,160,71, 0.7) 1px 1px;
+}
+
+div.item {
+  border: solid thin black;
+  position: relative;
+  border-radius: 15px;
+  margin: 10px;
+  height: 100px;
+  padding: 10px;
+}
+div.item:hover {
+  cursor: pointer;
+  color: white;
+  text-shadow: black 2px 2px;
+  background-color: rgba(67,160,71, 0.7);
+  border-width: thick;
+}
+div.item.menu {
+  height: 180px;
+}
+div.item>h3 {
+  text-align: center;
+}
+div.item span.badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}

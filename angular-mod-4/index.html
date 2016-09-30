@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles/bootstrap.min.css">
+        <link rel="stylesheet" href="styles/styles.css">
+    </head>
+    <body ng-app="MenuApp">
+        <h1>Menu App</h1>
+        <ul class="nav nav-pills">
+          <li role="presentation" ui-sref="home" ui-sref-active="active">Home</li>
+          <li role="presentation" ui-sref="categories"  ui-sref-active="active">Categories</li>
+        </ul>
+        <ui-view></ui-view>
+        <!-- libraries -->
+        <script src="/lib/angular.min.js"></script>
+        <script src="/lib/angular-ui-router.min.js"></script>
+
+        <!-- modules -->
+        <script src="/src/menuapp.module.js"></script>
+        <script src="/src/data.module.js"></script>
+
+        <!-- Routes -->
+        <script src="src/routes.js"></script>
+
+        <!-- components -->
+        <script src="/src/menudata.service.js"></script>
+        <script src="/src/categories.controller.js"></script>
+        <script src="/src/categories.component.js"></script>
+        <script src="/src/items.controller.js"></script>
+        <script src="/src/items.component.js"></script>
+
+    </body>
+</html>
