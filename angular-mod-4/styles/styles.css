@@ -34,6 +34,9 @@ div.item:hover {
 div.item.menu {
   height: 200px;
 }
+div.item.menu:hover {
+  cursor: none;
+}
 div.item>h3 {
   text-align: center;
 }
