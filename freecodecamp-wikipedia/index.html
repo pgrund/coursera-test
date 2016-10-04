@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FreeCode Camp - Wikipedia Viewer</title>
+
+    <link rel="stylesheet" href="./styles/font-awesome.min.css">
+    <link rel="stylesheet" href="./styles/bootstrap.min.css">
+
+    <link rel="stylesheet" href="./styles/styles.css">
+
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body ng-app="WikiViewer">
+
+    <div class="container-fluid" ng-controller="WikiSearchController as wiki">
+      <div class="row">
+        <div class=" col-sm-6 col-sm-offset-3">
+          <div class="input-group">
+            <span class="input-group-btn">
+              <a class="btn btn-primary" href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">Random page</a>
+              <a class="btn btn-primary" ui-sref="searchresult({page: wiki.page})"><i class="fa fa-search"></i></a>
+            </span>
+            <input type="text" class="form-control" placeholder="wiki page" ng-model="wiki.page">
+          </div>
+        </div>
+      </div>
+      <ui-view></ui-view>      
+    </div>
+
+    <!-- libraries -->
+    <!--script src="https://cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script-->
+    <script src="./lib/jquery.min.js" charset="utf-8"></script>
+    <!--script src="https://cdn.jsdelivr.net/bootstrap/3.3.5/js/bootstrap.min.js"></script-->
+    <script src="./lib/bootstrap.min.js" charset="utf-8"></script>
+
+    <script src="./lib/angular.min.js" charset="utf-8"></script>
+    <script src="./lib/angular-ui-router.min.js" charset="utf-8"></script>
+
+    <!-- modules -->
+    <script src="./src/wikiviewer.module.js" charset="utf-8"></script>
+
+    <script src="./src/route.js" charset="utf-8"></script>
+    <!-- components -->
+    <script src="./src/wikisearch.controller.js" charset="utf-8"></script>
+    <script src="./src/searchresult.controller.js" charset="utf-8"></script>
+    <script src="./src/pageslist.component.js" charset="utf-8"></script>
+    <script src="./src/wikipedia.service.js" charset="utf-8"></script>
+
+  </body>
+</html>
