@@ -1,0 +1,11 @@
+<div ng-if="$ctrl.show" class="alert alert-danger">
+  <button class="btn close" ng-click="$ctrl.ackAll()"><span aria-hidden>&times;</span></button>
+  <h2>{{$ctrl.header}}</h2>
+  <ul>
+    <li style="list-style:none" ng-repeat="error in $ctrl.errors">
+      <i class="fa fa-ack" ng-click="$ctrl.ack(error)"></i>
+      <span>{{error.message}}</span>
+    </li>
+  </ul>
+</div>
+<!-- <button class="btn btn-danger" ng-click="$ctrl.trigger()">trigger error</button> -->

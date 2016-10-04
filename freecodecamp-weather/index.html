@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>FreeCode Camp - Weather</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://erikflowers.github.io/weather-icons/css/weather-icons.css">
+    <link rel="stylesheet" href="https://erikflowers.github.io/weather-icons/css/weather-icons-wind.css">
+    <link rel="stylesheet" href="https://tomlutzenberger.github.io/meteocons.css/dist/meteocons.min.css">
+    <style>
+    .temp{
+      font-size: 2em;
+    }
+    #unit {
+      color: darkblue;
+    }
+    #unit:hover {
+      cursor: pointer;
+    }
+    .container {
+      text-align:center;
+    }
+    .data i {
+      font-size: 4em;
+      color: darkblue;
+    }
+    .controls>div {
+      margin-top: 10px;
+    }
+    i.fa.fa-ack:before {
+      content: '\f096';
+    }
+    i.fa.fa-ack:hover:before {
+      content: '\f046';
+      font-size: larger;
+      cursor: pointer;
+    }
+
+    </style>
+  </head>
+<body ng-app="Weather">
+
+<div class="container" ng-controller="WeatherController as weather">
+ <error-handling></error-handling>
+ <div class="jumbotron">
+   <loading-spinner>
+      <a ng-href="https://www.google.de/maps/@{{weather.latitude}},{{weather.longitude}},8z" target="_blank">
+        <h2 id="city">{{weather.city}}</h2>
+      </a>
+      <div class="temp">
+        <span id="temp">{{weather.temperature | number:1}}</span>
+        <i id="unit" class="wi wi-{{weather.metric}}" alt="change unit" title="change unit" ng-click="weather.changeMetric();"></i>
+      </div>
+      <div class="data" id="data">
+        <i class="{{weather.iconClass}}" title="{{weather.data.main}}" alt="{{weather.data.main}}"></i>
+        <p>{{weather.description}}</p>
+      </div>
+   </loading-spinner>
+ </div>
+ <div class="row controls">
+    <div class="input-group col-sm-offset-3 col-sm-6">
+      <span class="input-group-btn">
+        <button class="btn btn-primary" type="button" id="change" ng-click="weather.getCityWeather();"><i class="fa fa-building-o"></i> change city</button>
+      </span>
+      <input type="text" class="form-control" placeholder="Search for city ..." ng-model="weather.citySearch">
+    </div>
+</div>
+<footer>
+  <p>assignment of FreeCode Camp</p>
+  <p>powered by openweathermap.org</p>
+</footer>
+
+</div>
+<!-- libraries -->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+
+<!-- modules -->
+<!-- <script src="scripts/weather/weather.module.js"></script>
+<script src="scripts/spinner/spinner.module.js"></script>
+<script src="scripts/error/error.module.js"></script> -->
+
+<!-- myweather artifacts -->
+<!-- <script src="scripts/weather/weather.controller.js"></script> -->
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+
+.temp{
+  font-size: 2em;
+}
+
+#unit {
+  color: darkblue;
+}
+#unit:hover {
+  cursor: pointer;
+}
+.container {
+  text-align:center;
+}
+.data i {
+  font-size: 4em;
+  color: darkblue;
+}
+
+.controls>div {
+  margin-top: 10px;
+}
+
+i.fa.fa-ack:before {
+  content: '\f096';
+}
+i.fa.fa-ack:hover:before {
+  content: '\f046';
+  font-size: larger;
+  cursor: pointer;
+}

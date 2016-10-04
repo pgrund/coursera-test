@@ -1,0 +1,7 @@
+<div ng-if="$ctrl.showSpinner">
+  <p>Loading...</p>
+  <i class="fa fa-spinner fa-pulse fa-fw fa-4x" alt="loading"></i>
+</div>
+<div ng-hide="$crtl.showSpinner" ng-transclude>
+</div>
+<!-- <button class="btn btn-info" ng-click="$ctrl.trigger()">trigger event</button> -->
