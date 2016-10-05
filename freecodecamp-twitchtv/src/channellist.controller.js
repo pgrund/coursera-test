@@ -8,6 +8,12 @@
     var listCtrl = this;
 
     listCtrl.items = TwitchTVService.channels;
+    listCtrl.channels = TwitchTVService.channelNames;
+    listCtrl.updateChannels = function() {
+      console.log(listCtrl.channels);
+      TwitchTVService.channelNames = listCtrl.channels;
+      listCtrl.getTwitchTvChannels();
+    };
     listCtrl.apiToken = "";
     listCtrl.useMock = true;
 

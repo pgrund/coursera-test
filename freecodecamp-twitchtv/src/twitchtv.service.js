@@ -382,18 +382,16 @@
         "status": "offline"
       }
   ])
-    .constant('TwitchTVChannels', [ "ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp",
-    "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"])
     .constant('TwitchTVApiBase', 'https://api.twitch.tv/kraken');
 
-  TwitchTVService.$inject = ['$http', 'dummyData', '$q',
-    'TwitchTVChannels', 'TwitchTVApiBase'];
-  function TwitchTVService($http, dummyData, $q, TwitchTVChannels,
-    TwitchTVApiBase) {
+  TwitchTVService.$inject = ['$http', 'dummyData', '$q', 'TwitchTVApiBase'];
+  function TwitchTVService($http, dummyData, $q, TwitchTVApiBase) {
     var twitchService = this;
 
     twitchService.mock = true;
     twitchService.channels = [];
+    twitchService.channelNames = [ "ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp",
+    "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"];
 
     twitchService.getChannels = function(TwitchTVApiToken) {
       var callData = function( passedUrl ) {
@@ -416,7 +414,7 @@
       };
 
       twitchService.channels = [];
-      var allCalls = TwitchTVChannels.map(function(channel) {
+      var allCalls = twitchService.channelNames.map(function(channel) {
           return callData(TwitchTVApiBase + "/streams/" + channel )
             .then(function(response) {
               var data = response.data;
@@ -436,7 +434,7 @@
         });
 
         return $q.all(allCalls).then(function(results) {
-          console.log("all done in service", twitchService.channels);
+          console.log("all done in service, updated list:", twitchService.channels);
         }).catch(function(err){
           console.log("ERROR", err);
         });
