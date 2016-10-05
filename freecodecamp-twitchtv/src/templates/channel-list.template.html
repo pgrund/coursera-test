@@ -1,0 +1,5 @@
+<div class="channel" ng-class="item.status" ng-repeat="item in $ctrl.items">
+  <img class="img-circle" ng-src="{{item.stream.channel.logo}}">
+  <h3>{{ item.stream.channel.display_name }}</h3>
+  <p class="current"><span>{{item.status}}:</span> {{ item.stream.channel.status }}</p>
+</div>
