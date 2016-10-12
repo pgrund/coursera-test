@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.container.row {
+  height: 500px;
+}
+#display {
+  position:relative;
+  background-color: rgba(77, 115, 32, 0.5);
+  border: solid thin whitesmoke;
+  border-radius: 5px;
+  box-shadow: 5px 5px 4px black;
+  text-align:right;
+  font-family: Courier New, monospace;
+  font-size: 42px;
+  font-weight: bold;
+}
+#memory {
+  position:absolute;
+  top: 50px;
+  left:0px;
+  font-size: 12px;
+}
+#memory:before{
+  content:'mem';
+}
+.jumbotron {
+  text-align:center;
+  padding: 60px;
+}
+.row div {
+  height: 80px;
+  padding: 5px;
+}
+.row div.colspan2 {
+  height: 160px;
+  margin-top:auto;
+  margin-bottom: auto;
+}
+.row.buttons button.btn {
+  height: 95%;
+  width: 95%;
+}
+.col-sm-9.container-fluid {
+  padding: 10px;
+  margin-top: -15px;
+}
+footer {
+  text-align: center;
+  color: lightgray;
+}

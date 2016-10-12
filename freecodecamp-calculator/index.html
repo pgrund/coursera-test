@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FreeCode Camp - Javascript Calculator</title>
+
+    <link rel="stylesheet" href="./styles/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles/styles.css">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+      <div class="container" ng-app="Calculator">
+        <div class="jumbotron">
+          <h1>Javascript Calculator</h1>
+          <div class="container row" ng-controller="CalculatorController as calcCtrl">
+            <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4" id="display">
+              <div>{{ calcCtrl.display|display:calcCtrl.value }}</div>
+              <div id="memory"> {{ calcCtrl.memory}}</div>
+              <input id="hiddenVal" type="hidden" ng-model="calcCtrl.value"/>
+            </div>
+            <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+              <div class="row buttons">
+                <div class="col-sm-3"><button class="btn btn-danger" ng-click="calcCtrl.allClear()">AC</button></div>
+                <div class="col-sm-3"><button class="btn btn-danger" ng-click="calcCtrl.clearEntry()">CE</button></div>
+                <div class="col-sm-3"><button class="btn btn-success" ng-click="calcCtrl.value = calcCtrl.value + '/'">/</button></div>
+                <div class="col-sm-3"><button class="btn btn-success"  ng-click="calcCtrl.value = calcCtrl.value + '*'">X</button></div>
+                <div class="col-sm-3"><button class="btn" ng-click="calcCtrl.value = calcCtrl.value + '7'">7</button></div>
+                <div class="col-sm-3"><button class="btn" ng-click="calcCtrl.value = calcCtrl.value + '8'">8</button></div>
+                <div class="col-sm-3"><button class="btn" ng-click="calcCtrl.value = calcCtrl.value + '9'">9</button></div>
+                <div class="col-sm-3"><button class="btn btn-success" ng-click="calcCtrl.value = calcCtrl.value + '-'">-</button></div>
+                <div class="col-sm-3"><button class="btn" ng-click="calcCtrl.value = calcCtrl.value + '4'">4</button></div>
+                <div class="col-sm-3"><button class="btn" ng-click="calcCtrl.value = calcCtrl.value + '5'">5</button></div>
+                <div class="col-sm-3"><button class="btn" ng-click="calcCtrl.value = calcCtrl.value + '6'">6</button></div>
+                <div class="col-sm-3"><button class="btn btn-success" ng-click="calcCtrl.value = calcCtrl.value + '+'">+</button></div>
+                <div class="col-sm-9 container-fluid">
+                  <div class="row">
+                    <div class="col-sm-4"><button class="btn" ng-click="calcCtrl.value = calcCtrl.value + '1'">1</button></div>
+                    <div class="col-sm-4"><button class="btn" ng-click="calcCtrl.value = calcCtrl.value + '2'">2</button></div>
+                    <div class="col-sm-4"><button class="btn" ng-click="calcCtrl.value = calcCtrl.value + '3'">3</button></div>
+                    <div class="col-sm-8"><button class="btn" ng-click="calcCtrl.value = calcCtrl.value + '0'">0</button></div>
+                    <div calcCtrl.value  class="col-sm-4"><button class="btn" ng-click="calcCtrl.value = calcCtrl.value + '.'">.</button></div>
+                 </div>
+                </div>
+                <div class="col-sm-3 colspan2"><button ng-click="calcCtrl.result()" class="btn btn-success prevent">=</button></div>
+              </div>
+            </div>
+          </div>
+          <footer>
+            <p>assignment of FreeCode Camp</p>
+          </footer>
+        </div>
+      </div>
+      <!-- libraries -->
+      <script src="./lib/jquery-2.2.4.min.js" charset="utf-8"></script>
+      <script src="./lib/bootstrap.min.js" charset="utf-8"></script>
+      <script src="./lib/angular.min.js" charset="utf-8"></script>
+
+      <!-- modules -->
+      <script src="./src/calculator.module.js" charset="utf-8"></script>
+      <!-- components -->
+      <script src="./src/calculator.controller.js" charset="utf-8"></script>
+      <script src="./src/calculator.filter.js" charset="utf-8"></script>
+
+  </body>
+</html>
