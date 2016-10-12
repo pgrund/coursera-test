@@ -18,8 +18,12 @@
   </head>
   <body>
     <div class="container" ng-app="Pomodoro">
-      <div class="jumbotron text-center">
+      <div class="jumbotron text-center" ng-controller="PomodoroController as pomCtrl">
         <h1>Pomodoro Clock</h1>
+        <div>
+          <p>{{ pomCtrl.current / 60 | floor}}:{{pomCtrl.current % 60 | leadingZero}}</p>
+          <input type="text" ng-model="pomCtrl.sessionLength"><button class="btn btn-primary" ng-click="pomCtrl.toggleTimer()">timer</button><input type="text" ng-model="pomCtrl.breakLength">
+        </div>
         <footer>
         <p>assignment of <a href="https://www.freecodecamp.com/challenges/build-a-pomodoro-clock" target="_blank"><i class="fa fa-fire"></i> FreeCode Camp</a></p>
         </footer>
@@ -33,6 +37,7 @@
     <!-- modules -->
     <script src="./src/pomodoro.module.js" charset="utf-8"></script>
     <!-- components -->
-
+    <script src="./src/pomodoro.controller.js" charset="utf-8"></script>
+    <script src="./src/pomodoro.filter.js" charset="utf-8"></script>
   </body>
 </html>
