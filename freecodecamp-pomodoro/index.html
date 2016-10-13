@@ -21,18 +21,30 @@
       <div class="jumbotron text-center" ng-controller="PomodoroController as pomCtrl">
         <h1>Pomodoro Clock</h1>
         <div class="timer">
-          <p>{{pomCtrl.mode}}</p>
-          <p>{{ pomCtrl.current / 60 | floor}}:{{pomCtrl.current % 60 | floor | leadingZero}}</p>
-          <i class="fa fa-minus-square-o" ng-click="pomCtrl.setSession(-0.1)"></i>
-          {{pomCtrl.sessionLength| number:1}}
-          <i class="fa fa-plus-square-o" ng-click="pomCtrl.setSession(0.1);"></i>
-          <button class="btn btn-success" ng-click="pomCtrl.setSession()"></button>
-          <button class="btn btn-primary" ng-click="pomCtrl.toggleTimer()">
-            <span ng-if="!pomCtrl.running"><i class="fa fa-play"></i> start</span>
-            <span ng-if="pomCtrl.running"><i class="fa fa-stop"></i> stop</span>
-          </button>
-          <button class="btn btn-success" ng-click="pomCtrl.setBreak()">set</button>
-          <input type="text" ng-model="pomCtrl.breakLength">
+          <header class="row">
+            <p class="title" ng-class="pomCtrl.mode">{{pomCtrl.mode}}</p>
+            <p class="percentage" ng-class="pomCtrl.mode" ng-style="{'width': pomCtrl.perc +'%'}"></p>
+          </header>
+          <div class="row">
+            <div class="col-sm-3 col-sm-offset-2">
+              <i class="fa fa-2x fa-minus-square-o text-success" ng-click="pomCtrl.sessionDecr()"></i>
+              <span class="length" ng-click="pomCtrl.setSession()">{{pomCtrl.sessionLength| number:1}}</span>
+              <i class="fa fa-2x fa-plus-square-o text-success" ng-click="pomCtrl.sessionIncr()"></i>
+            </div>
+            <div class="col-sm-2">
+              <button class="btn btn-primary" ng-click="pomCtrl.toggleTimer()">
+                <span ng-if="!pomCtrl.running"><i class="fa fa-play"></i> start</span>
+                <span ng-if="pomCtrl.running"><i class="fa fa-stop"></i> stop</span>
+              </button>
+            </div>
+            <div class="col-sm-3">
+              <i class="fa fa-2x fa-minus-square-o text-danger" ng-click="pomCtrl.breakDecr()"></i>
+              <span class="length" ng-click="pomCtrl.setBreak()">{{pomCtrl.breakLength| number:1}}</span>
+              <i class="fa fa-2x fa-plus-square-o text-danger" ng-click="pomCtrl.breakIncr()"></i>
+            </div>
+          </div>
+          <p class="time">{{ pomCtrl.current / 60 | floor}}:{{pomCtrl.current % 60 | floor | leadingZero}}</p>
+          <p class="percentage" ng-class="pomCtrl.mode" ng-style="{'width': pomCtrl.perc +'%'}"></p>
         </div>
         <footer>
         <p>assignment of <a href="https://www.freecodecamp.com/challenges/build-a-pomodoro-clock" target="_blank"><i class="fa fa-fire"></i> FreeCode Camp</a></p>
