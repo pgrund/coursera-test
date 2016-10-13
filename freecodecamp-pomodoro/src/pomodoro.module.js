@@ -1,4 +1,5 @@
 (function() {
   'use strict';
-  angular.module('Pomodoro', []);
+  angular.module('Pomodoro', [])
+    .constant('PomodoroTimerStep', 1);
 }());

@@ -54,3 +54,6 @@ header>p.title.Break:before {
   font-weight: bolder;
   font-size: 6em;
 }
+div>i {
+  cursor:pointer;
+}
