@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FreeCode Camp - Tic Tac Toe</title>
+
+    <link rel="stylesheet" href="./styles/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles/font-awesome.min.css">
+
+    <link rel="stylesheet" href="./styles/styles.css">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container" ng-app="TicTacToe">
+      <div class="jumbotron text-center" ng-controller="TicTacToeController as tCtrl">
+        <h1>Tic Tac Toe</h1>
+        <footer>
+        <p>assignment of <a href="https://www.freecodecamp.com/challenges/build-a-tic-tac-toe-game" target="_blank"><i class="fa fa-fire"></i> FreeCode Camp</a></p>
+        </footer>
+      </div>
+    </div>
+    <!-- libraries -->
+    <script src="./lib/jquery-2.2.4.min.js" charset="utf-8"></script>
+    <script src="./lib/bootstrap.min.js" charset="utf-8"></script>
+    <script src="./lib/angular.min.js" charset="utf-8"></script>
+
+    <!-- modules -->
+    <script src="./src/tictactoe.module.js" charset="utf-8"></script>
+    <!-- components -->
+    <script src="./src/tictactoe.controller.js" charset="utf-8"></script>
+  </body>
+</html>

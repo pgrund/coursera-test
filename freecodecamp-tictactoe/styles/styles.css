@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+}
+footer, footer a {
+  color: lightgray;
+}
+footer a:hover, footer a:visited  {
+  color: darkgray;
+  text-decoration: none;
+}
+.jumbotron h1 {
+  background: black;
+  color: white;
+}
+.length {
+  font-size: 3em;
+  vertical-align: sub;
+}
+header {
+  position:relative;
+}
+.percentage {
+  position:relative;
+  left:0;
+  top:-15px;
+  height: 5px;
+  width: 100%;
+}
+.Session {
+  background-color: rgba(60,118,61,0.7);
+}
+.Break {
+  background-color:rgba(169,68,66,0.7);
+}
+header>p.title {
+  color: darkgray;
+  text-shadow: 3px 2px 2px white;
+  font-size: 3em;
+  z-index: 1;
+}
+header>p.title.Session, header>p.title.Break {
+  background-color:transparent;;
+}
+header>p.title.Session:before {
+  font-family: Fontawesome;
+  content:'\f017  ';
+}
+header>p.title.Break:before {
+  font-family: Fontawesome;
+  content:'\f250  ';
+}
+.timer .time {
+  font-family: Courier New, monospace;
+  font-weight: bolder;
+  font-size: 6em;
+}
+div>i {
+  cursor:pointer;
+}
