@@ -1,5 +1,5 @@
 <div class="container" ng-if="infoCtrl.registered">
-  <div class="container">
+    <p class="col-sm-12 text-center">You are currently registered with the following information.</p>
     <div class="col-sm-4 col-lg-4">
       <div class="row info-item">
         <label class="col-sm-4 col-xs-12"><span class="glyphicon glyphicon-user"></span> Name</label>
@@ -18,7 +18,7 @@
       <label class="col-sm-6 col-xs-12"><span class="glyphicon glyphicon-cutlery"></span> Favorite Dish</label>
       <menu-item menu-item="infoCtrl.user.favorite"></menu-item>
     </div>
-  </div>
+    <p class="col-sm-12 text-center"><a ui-sref="public.signup">Want to change your data ?</a></p>
 </div>
 <div class="container" ng-if="!infoCtrl.registered">
   <p >Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a></p>

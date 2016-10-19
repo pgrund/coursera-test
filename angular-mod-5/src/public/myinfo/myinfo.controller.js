@@ -5,6 +5,6 @@
       var infoCtrl = this;
       infoCtrl.user = user;
 
-      infoCtrl.registered = ( infoCtrl.user != null && infoCtrl.user != undefined);
+      infoCtrl.registered = ( infoCtrl.user != null && infoCtrl.user != undefined && infoCtrl.user.email);
     }])
 }());

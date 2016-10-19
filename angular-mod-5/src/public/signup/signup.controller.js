@@ -9,14 +9,14 @@
 
     signupCtrl.completed = false;
     signupCtrl.user = MenuService.user;
-    signupCtrl.registered = MenuService.registered;
+    signupCtrl.registered = (signupCtrl.user != null & signupCtrl.user != undefined && signupCtrl.user.email);
     signupCtrl.favorite = '';
 
-    signupCtrl.go = function () {
-      console.log("go!", signupCtrl.favorite, signupCtrl.user);
+    signupCtrl.register = function (user) {
+      console.log("registering", user);
       signupCtrl.completed = true;
-      signupCtrl.favorite = MenuService.user.favorite.short_name;
-      MenuService.user = signupCtrl.user;
+      signupCtrl.favorite = (user.favorite ? user.favorite.short_name : '');
+      MenuService.user = user;
       signupCtrl.registered = true;
     };
   }
