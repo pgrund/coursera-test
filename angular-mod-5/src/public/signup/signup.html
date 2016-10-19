@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="col-sm-6 col-sm-offset-3">
+    <h3>Signup for our newsletter</h3>
+    <p>Stay up to date about news from David Chu's China Bistro ...</p>
+  </div>
+  <form name="signupForm" novalidate class="col-sm-6 col-sm-offset-3">
+     <div class="form-group">
+       <label for="first">First name</label>
+       <div class="input-group">
+           <input type="text" id="first" name="firstname" class="form-control" placeholder="first name" ng-model="signupCtrl.user.firstName" required>
+           <div class="input-group-addon">
+             <span class="glyphicon glyphicon-user"></span>
+           </div>
+        </div>
+       <p class="text-danger" ng-if="signupForm.firstname.$error.required && signupForm.firstname.$touched">First name is required.</p>
+     </div>
+     <div class="form-group">
+       <label for="last">Last name</label>
+       <div class="input-group">
+         <input type="text" id="last" class="form-control" name="lastname" placeholder="last name" ng-model="signupCtrl.user.lastName" required>
+         <div class="input-group-addon">
+           <span class="glyphicon glyphicon-user"></span>
+         </div>
+       </div>
+       <p class="text-danger" ng-if="signupForm.lastname.$error.required && signupForm.lastname.$touched">Last name is required.</p>
+     </div>
+     <div class="form-group">
+       <label for="email">Email address</label>
+       <div class="input-group">
+         <input type="email" id="email" class="form-control" name="email" placeholder="email address" ng-model="signupCtrl.user.email" required>
+         <div class="input-group-addon">
+           <span class="glyphicon glyphicon-envelope"></span>
+         </div>
+       </div>
+       <p class="text-danger" ng-if="signupForm.email.$error.required && signupForm.email.$touched">email address is required.</p>
+       <p class="text-danger" ng-if="signupForm.email.$error.email && signupForm.email.$touched">no valid email address.</p>
+     </div>
+     <div class="form-group">
+       <label for="phonenumber">Phone Number <em>(optional)</em></label>
+       <div class="input-group">
+         <input type="tel" id="phonenumber" class="form-control" name="phonenumber" placeholder="phone number ###-###-####" pattern="(\d{3})-(\d{3})-(\d{4})" ng-model="signupCtrl.user.phoneNumber">
+         <div class="input-group-addon">
+           <span class="glyphicon glyphicon-phone"></span>
+         </div>
+       </div>
+       <p class="text-danger" ng-if="signupForm.phonenumber.$error.pattern && signupForm.phonenumber.$touched">invalid phone number.</p>
+       <p class="help-block">In order to call you if your reservation changes.</p>
+     </div>
+     <div class="form-group">
+       <label for="favorite">Favorite Dish</label>
+       <div class="input-group">
+         <input type="text" id="favorite" class="form-control" name="favoritedish" placeholder="menu number of favorite dish" menuitem ng-model="signupCtrl.user.favorite.short_name" ng-model-options="{ updateOn: 'blur' }">
+         <div class="input-group-addon">
+           <span>{{signupCtrl.user.favorite.name }}</span>
+           <span class="glyphicon glyphicon-cutlery"></span>
+         </div>
+       </div>
+       <p class="text-danger" ng-if="signupForm.favoritedish.$error.menuitem">No such menu number exists.</p>
+       <p class="help-block">Your favorite dish (menu number)</p>
+     </div>
+     <button class="btn btn-default" ng-disabled="signupForm.$invalid" ng-click="signupCtrl.go()">submit</button>
+  </form>
+  <h2 class="col-sm-12 text-center" ng-if="signupCtrl.completed">Your information has been saved.</h2>
+</div>
