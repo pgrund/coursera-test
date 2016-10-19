@@ -1,0 +1,25 @@
+<div class="container" ng-if="infoCtrl.registered">
+  <div class="col-sm-4 container">
+    <div class="row info-item">
+      <label class="col-sm-4"><span class="glyphicon glyphicon-user"></span> Name</label>
+      <p class="col-sm-8">{{ infoCtrl.user.firstName }} {{ infoCtrl.user.lastName }}</p>
+    </div>
+    <div class="row info-item">
+      <label class="col-sm-4"><span class="glyphicon glyphicon-envelope"></span> Email</label>
+      <p class="col-sm-8">{{ infoCtrl.user.email }}</p>
+    </div>
+    <div ng-if="infoCtrl.user.phoneNumber" class="row info-item">
+      <label class="col-sm-4"><span class="glyphicon glyphicon-phone"></span> Phone</label>
+      <p class="col-sm-8"><a href="tel:{{ infoCtrl.user.phoneNumber }}">{{ infoCtrl.user.phoneNumber }}</a></p>
+    </div>
+  </div>
+  <div ng-if="infoCtrl.user.favorite.id" class="col-sm-8">
+    <div class="row info-item">
+      <label class="col-sm-1 col-md-1 favorite"><span class="glyphicon glyphicon-cutlery"></span> Favorite Dish</label>
+      <menu-item menu-item="infoCtrl.user.favorite"></menu-item>
+    </div>
+  </div>
+</div>
+<div class="container" ng-if="!infoCtrl.registered">
+  <p >Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a></p>
+</div>

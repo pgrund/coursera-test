@@ -4,17 +4,30 @@
     <p>Stay up to date about news from David Chu's China Bistro ...</p>
   </div>
   <form name="signupForm" novalidate class="col-sm-6 col-sm-offset-3">
-     <div class="form-group">
-       <label for="first">First name</label>
-       <div class="input-group">
-           <input type="text" id="first" name="firstname" class="form-control" placeholder="first name" ng-model="signupCtrl.user.firstName" required>
-           <div class="input-group-addon">
-             <span class="glyphicon glyphicon-user"></span>
+     <div class="form-group row">
+       <label class="col-sm-12 control-label" for="name">Name</label>
+       <div class="form-group col-sm-12 row">
+         <div class="col-sm-6">
+           <div class="input-group">
+             <input type="text" id="first" name="firstname" class="form-control" placeholder="first name" ng-model="signupCtrl.user.firstName" required>
+             <div class="input-group-addon">
+               <span class="glyphicon glyphicon-user"></span>
+             </div>
            </div>
-        </div>
+         </div>
+         <div class="col-sm-6">
+           <div class="input-group">
+              <input type="text" id="last" name="lastname" class="form-control" placeholder="last name" ng-model="signupCtrl.user.lastName" required>
+            <div class="input-group-addon">
+              <span class="glyphicon glyphicon-user"></span>
+            </div>
+           </div>
+         </div>
+       </div>
        <p class="text-danger" ng-if="signupForm.firstname.$error.required && signupForm.firstname.$touched">First name is required.</p>
+       <p class="text-danger" ng-if="signupForm.lastname.$error.required && signupForm.lastname.$touched">Last name is required.</p>
      </div>
-     <div class="form-group">
+     <!-- <div class="form-group">
        <label for="last">Last name</label>
        <div class="input-group">
          <input type="text" id="last" class="form-control" name="lastname" placeholder="last name" ng-model="signupCtrl.user.lastName" required>
@@ -23,7 +36,7 @@
          </div>
        </div>
        <p class="text-danger" ng-if="signupForm.lastname.$error.required && signupForm.lastname.$touched">Last name is required.</p>
-     </div>
+     </div> -->
      <div class="form-group">
        <label for="email">Email address</label>
        <div class="input-group">
@@ -47,11 +60,11 @@
        <p class="help-block">In order to call you if your reservation changes.</p>
      </div>
      <div class="form-group">
-       <label for="favorite">Favorite Dish</label>
+       <label for="favorite">Favorite Dish <em>(optional)</em></label>
        <div class="input-group">
          <input type="text" id="favorite" class="form-control" name="favoritedish" placeholder="menu number of favorite dish" menuitem ng-model="signupCtrl.user.favorite.short_name" ng-model-options="{ updateOn: 'blur' }">
          <div class="input-group-addon">
-           <span>{{signupCtrl.user.favorite.name }}</span>
+           <span>{{ signupCtrl.user.favorite.name }}</span>
            <span class="glyphicon glyphicon-cutlery"></span>
          </div>
        </div>

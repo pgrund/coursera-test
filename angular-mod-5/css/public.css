@@ -183,3 +183,31 @@ h3.menu-item-title {
     width: 100%;
   }
 }
+.info-item {
+  border: solid thin whitesmoke;
+  border-radius: 20px;
+  margin: 10px;
+}
+.info-item>label {
+  background-color:  #f6b319;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  padding:20px;
+  margin-bottom: 0;
+  color: #61122f;
+}
+.info-item>p {
+  padding-top: 20px;
+}
+.info-item>label.favorite {
+  writing-mode: vertical-rl;
+  height: 200px;
+}
+.info-item>label.favorite>span.glyphicon {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}

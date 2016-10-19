@@ -10,12 +10,6 @@
     signupCtrl.completed = false;
     signupCtrl.user = MenuService.user;
 
-    signupCtrl.user.firstName = "Peter";
-    signupCtrl.user.lastName = "Grund";
-    signupCtrl.user.email = "test@test";
-    signupCtrl.user.phoneNumber = "123-456-7890";
-    signupCtrl.user.favorite = "";
-
     signupCtrl.go = function () {
       console.log("go!", signupCtrl.user.favorite.short_name);
       signupCtrl.completed = true;
