@@ -72,7 +72,7 @@
        <p class="text-danger" ng-if="signupForm.favoritedish.$error.menuitem">No such menu number exists.</p>
        <p class="help-block">Your favorite dish (menu number)</p>
      </div>
-     <button class="btn btn-submit" ng-disabled="signupForm.$invalid || signupForm.$pending" ng-submit="signupForm.favoritedish.$rollbackViewValue(); signupCtrl.favorite=null;signupCtrl.go()">Register</button>
+     <button class="btn btn-submit" ng-disabled="signupForm.$invalid || signupForm.$pending" ng-click="signupForm.favoritedish.$rollbackViewValue(); signupCtrl.favorite=null;signupCtrl.go()">Register</button>
   </form>
   <h2 class="col-sm-12 text-center" ng-if="signupCtrl.completed">Your information has been saved.</h2>
 </div>
