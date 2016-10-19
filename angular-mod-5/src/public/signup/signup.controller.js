@@ -9,12 +9,15 @@
 
     signupCtrl.completed = false;
     signupCtrl.user = MenuService.user;
+    signupCtrl.registered = MenuService.registered;
+    signupCtrl.favorite = '';
 
     signupCtrl.go = function () {
-      console.log("go!", signupCtrl.user.favorite.short_name);
+      console.log("go!", signupCtrl.favorite, signupCtrl.user);
       signupCtrl.completed = true;
-      signupCtrl.user.favorite = MenuService.user.favorite;
+      signupCtrl.favorite = MenuService.user.favorite.short_name;
       MenuService.user = signupCtrl.user;
+      signupCtrl.registered = true;
     };
   }
 }());

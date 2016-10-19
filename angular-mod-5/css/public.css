@@ -199,15 +199,26 @@ h3.menu-item-title {
 .info-item>p {
   padding-top: 20px;
 }
-.info-item>label.favorite {
-  writing-mode: vertical-rl;
-  height: 200px;
+.info-item.favorite>label {
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 0;
+  border-top: solid thin whitesmoke;
+  border-right: solid thin whitesmoke;
+  border-left: solid thin whitesmoke;
 }
-.info-item>label.favorite>span.glyphicon {
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  transform: rotate(90deg);
+.info-item.favorite {
+  border:none;
+}
+.info-item>menu-item>div {
+  border-right: solid thin whitesmoke;
+  border-left: solid thin whitesmoke;
+  border-bottom: solid thin whitesmoke;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+form button.btn-submit {
+  background-color:#f6b319;
+  color:white;
+  font-weight: bold;
+  font-size: larger;
 }

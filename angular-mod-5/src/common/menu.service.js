@@ -35,24 +35,24 @@ function MenuService($http, ApiPath) {
     })
   };
 
-  service.user = {
-    // firstName: "first",
-    // lastName: "last",
-    // email: "email@address",
-    // phoneNumber: "123-456-7890",
-    // favorite: {
-    //   "id":1,
-    //   "short_name":"A1",
-    //   "name":"Won Ton Soup with Chicken",
-    //   "description":"chicken-stuffed won tons in clear chicken broth with white meat chicken pieces and a few scallions",
-    //   "price_small":2.55,
-    //   "price_large":5.0,
-    //   "small_portion_name":"pint",
-    //   "large_portion_name":"quart",
-    //   "image_present":true
-    // }
-  };
-
+  service.user =  {
+  //   firstName: "first",
+  //   lastName: "last",
+  //   email: "email@address",
+  //   phoneNumber: "123-456-7890",
+  //   favorite: {
+  //     "id":1,
+  //     "short_name":"A1",
+  //     "name":"Won Ton Soup with Chicken",
+  //     "description":"chicken-stuffed won tons in clear chicken broth with white meat chicken pieces and a few scallions",
+  //     "price_small":2.55,
+  //     "price_large":5.0,
+  //     "small_portion_name":"pint",
+  //     "large_portion_name":"quart",
+  //     "image_present":true
+  //   }
+    };
+  service.registered = (service.user != null && service.user != undefined);
 }
 
 

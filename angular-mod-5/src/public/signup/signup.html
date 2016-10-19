@@ -1,6 +1,7 @@
 <div class="container">
   <div class="col-sm-6 col-sm-offset-3">
-    <h3>Signup for our newsletter</h3>
+    <h3 ng-if="signupCtrl.registered">Change your registration</h3>
+    <h3 ng-if="!signupCtrl.registered">Signup for our newsletter</h3>
     <p>Stay up to date about news from David Chu's China Bistro ...</p>
   </div>
   <form name="signupForm" novalidate class="col-sm-6 col-sm-offset-3">
@@ -62,16 +63,16 @@
      <div class="form-group">
        <label for="favorite">Favorite Dish <em>(optional)</em></label>
        <div class="input-group">
-         <input type="text" id="favorite" class="form-control" name="favoritedish" placeholder="menu number of favorite dish" menuitem ng-model="signupCtrl.user.favorite.short_name" ng-model-options="{ updateOn: 'blur' }">
+         <input type="text" id="favorite" class="form-control" name="favoritedish" placeholder="menu number of favorite dish" menuitem ng-model="signupCtrl.favorite" ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 500, 'blur': 0 } }">
          <div class="input-group-addon">
-           <span>{{ signupCtrl.user.favorite.name }}</span>
            <span class="glyphicon glyphicon-cutlery"></span>
+           <span> {{ signupCtrl.user.favorite.name }}</span>
          </div>
        </div>
        <p class="text-danger" ng-if="signupForm.favoritedish.$error.menuitem">No such menu number exists.</p>
        <p class="help-block">Your favorite dish (menu number)</p>
      </div>
-     <button class="btn btn-default" ng-disabled="signupForm.$invalid" ng-click="signupCtrl.go()">submit</button>
+     <button class="btn btn-submit" ng-disabled="signupForm.$invalid || signupForm.$pending" ng-submit="signupForm.favoritedish.$rollbackViewValue(); signupCtrl.favorite=null;signupCtrl.go()">Register</button>
   </form>
   <h2 class="col-sm-12 text-center" ng-if="signupCtrl.completed">Your information has been saved.</h2>
 </div>
