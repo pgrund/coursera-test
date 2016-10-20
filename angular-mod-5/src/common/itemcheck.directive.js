@@ -6,21 +6,22 @@
         require: 'ngModel',
         link: function(scope, elm, attrs, ctrl) {
           ctrl.$asyncValidators.menuitem = function(modelValue, viewValue) {
+            var def = $q.defer();
             if (ctrl.$isEmpty(modelValue)) {
               // consider empty model valid
-              return $q.when();
-            }
-            var def = $q.defer();
-            $timeout(function(){
+              if(MenuService.user){
+                delete MenuService.user.favorite;
+              };
+              def.resolve();
+            } else {
               MenuService.getCheckMenuItem(modelValue).then(function(p){
-                // console.log(p, modelValue, viewValue);
                 if(p != undefined) {
                   def.resolve();
                 } else {
                   def.reject();
                 };
               });
-            },2000);
+            };
             return def.promise;
           };
         }
