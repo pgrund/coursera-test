@@ -57,3 +57,24 @@ header>p.title.Break:before {
 div>i {
   cursor:pointer;
 }
+
+.row.board>div {
+  min-height: 50px;
+}
+.row.board>div.marked {
+  background-color: rgba(190,190,190,0.5);
+}
+.row.board>div:nth-child(3n+2) {
+  border-left:solid thick darkgray;
+  border-right:solid thick darkgray;
+}
+.row.board>div:nth-child(-n+6) {
+  border-bottom:solid thick darkgray;
+}
+.row.board>div>i.fa {
+  font-size: 3em;
+  color:green;
+}
+.row.board>div>i.fa.fa-remove {
+  color:red;
+}
