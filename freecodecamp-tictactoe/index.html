@@ -21,42 +21,45 @@
       <div class="jumbotron text-center" ng-controller="TicTacToeController as tCtrl">
         <h1>Tic Tac Toe</h1>
         <div class="container">
-          <div class="row header">
-            <div class="col-xs-offset-4 col-xs-2">
-              <div>
-                -{{ tCtrl.state }}-{{ tCtrl.computer }}-
-                <span ng-hide="tCtrl.state == 'running'">
-                  {{ tCtrl.result }}
-                  <select ng-model="tCtrl.computer" ng-change="tCtrl.updateComputer()">
-                    <option value="-1">2 Players</option>
-                    <option value="0">Computer (novice)</option>
-                    <option value="1">Computer (intermediate)</option>
-                    <option value="2">Computer (unbeatable)</option>
-                  </select>
-                </span>
-              </div>
-            </div>
-            <div class="col-xs-2">
-              <button type="button" class="btn btn-primary" ng-click="tCtrl.reset()">restart</button>
-              <button type="button" class="btn btn-primary" ng-click="tCtrl.start()" ng-if="tCtrl.state == 'initial'">start</button>
-            </div>
-          </div>
           <div class="row">
             <div class="col-xs-offset-4 col-xs-4 row">
               <div class="player {{player.id}} col-xs-6" ng-repeat="player in tCtrl.players" ng-class="{'active' : player.active}">
                   <i class="fa"></i> {{ player.name }}
               </div>
             </div>
-
           </div>
           <div class="row">
             <div class="col-xs-offset-4 col-xs-4">
               <div class="row board">
                 <div class="col-xs-4 player {{entry.player}}" ng-repeat="entry in tCtrl.board" ng-click="tCtrl.select($index)" ng-class="{'marked': entry.marked, 'winner': entry.success}">
-                  <!-- <pre>{{entry | json}}</pre> -->
                   <i class="fa" ng-if="entry.marked"></i>
                 </div>
               </div>
+            </div>
+          </div>
+          <div class="row header">
+
+            <div class="col-xs-offset-4 col-xs-3">
+              <h2 class="text-center">{{ tCtrl.message }}</h2>
+              <div ng-if="['won','lost','draw'].indexOf(tCtrl.state)>-1">
+                <span>starting a new game</span>
+                <progress max="10" ng-value="tCtrl.progress"></progress>
+              </div>
+            </div>
+            <div class="col-xs-offset-4 col-xs-3">
+              <div>
+                  <select class="form-control" ng-model="tCtrl.computer" >
+                  <!-- ng-disabled="tCtrl.state == 'running'" ng-change="tCtrl.updateComputer()"> -->
+                    <option value="multi">2 Players</option>
+                    <option value="novice">Computer (novice)</option>
+                    <option value="advanced">Computer (advanced)</option>
+                    <option value="unbeatable">Computer (unbeatable)</option>
+                  </select>
+              </div>
+            </div>
+            <div class="col-xs-1">
+              <button type="button" class="btn btn-primary" ng-click="tCtrl.reset()" ng-if="tCtrl.state != 'initial'">restart</button>
+              <button type="button" class="btn btn-primary" ng-click="tCtrl.start()" ng-if="tCtrl.state == 'initial'">start</button>
             </div>
           </div>
         </div>
