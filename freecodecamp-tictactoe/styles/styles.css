@@ -68,6 +68,10 @@ div>i {
 .row.board>div.marked {
   background-color: rgba(190,190,190,0.5);
 }
+.row.board>div.marked.winner>i {
+  text-shadow: 3px 3px 5px yellow;
+}
+
 .row.board>div:nth-child(3n+2) {
   border-left:solid thick darkgray;
   border-right:solid thick darkgray;
@@ -75,23 +79,31 @@ div>i {
 .row.board>div:nth-child(-n+6) {
   border-bottom:solid thick darkgray;
 }
-div.player.o {
-  color: green;
+div.player.active {
+  border-top: solid thin;
+  border-left: solid thin;
+  border-right: solid thin;
+  border-radius: 5px 5px 0 0;
 }
-div.player.x {
+div.player.O {
+  color: green;
+  border-color: green;
+}
+div.player.X {
   color: red;
+  border-color: red;
 }
 .board>div.player>i.fa {
   font-size: 3em;
   vertical-align: middle;
 }
-div.player.o i.fa:before {
+div.player.O i.fa:before {
   /* fa-circle-o */
   content: '\f10c';
   /* fa-user */
   /*content: '\f007';*/
 }
-div.player.x i.fa:before {
+div.player.X i.fa:before {
   /* fa-times */
   content: '\f00d';
   /* fa-server */

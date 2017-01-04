@@ -11,9 +11,9 @@
       // reset players
       players.forEach( (p,idx) => {
         p.fields = [];
-        p.active = (idx == 0);
+        p.active = (p.id == 'X');
       });
-      return players[0];
+      return players.find(p => p.active);
     };
 
     tService.checkForResult = function (player) {
