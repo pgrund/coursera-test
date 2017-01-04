@@ -21,20 +21,29 @@
       <div class="jumbotron text-center" ng-controller="TicTacToeController as tCtrl">
         <h1>Tic Tac Toe</h1>
         <div class="container">
+          <div class="row header">
+            <div class="col-xs-offset-4 col-xs-2">
+              <div class="player" ng-class="tCtrl.activePlayer.id">
+                <span ng-if="tCtrl.running()">
+                  <i class="fa"></i>
+                  {{ tCtrl.activePlayer.name }}
+                </span>
+                <span ng-hide="tCtrl.running()">
+                  {{ tCtrl.result }}
+                </span>
+              </div>
+            </div>
+            <div class="col-xs-2">
+              <button type="button" class="btn btn-primary" ng-click="tCtrl.reset()">restart</button>
+            </div>
+          </div>
           <div class="row">
             <div class="col-xs-offset-4 col-xs-4">
-              <div class="col-xs-6">up next: <span id="next"></i></span></div>
-              <div class="col-xs-6"><button type="button" id="restart">restart</button></div>
               <div class="row board">
-                <div class="col-xs-4"></div>
-                <div class="col-xs-4"></div>
-                <div class="col-xs-4"></div>
-                <div class="col-xs-4"></div>
-                <div class="col-xs-4"></div>
-                <div class="col-xs-4"></div>
-                <div class="col-xs-4"></div>
-                <div class="col-xs-4"></div>
-                <div class="col-xs-4"></div>
+                <div class="col-xs-4 player {{entry.player}}" ng-repeat="entry in tCtrl.board" ng-click="tCtrl.select($index)" ng-class="{'marked': entry.marked}">
+                  <!-- <pre>{{entry | json}}</pre> -->
+                  <i class="fa" ng-if="entry.marked"></i>
+                </div>
               </div>
             </div>
           </div>
@@ -50,83 +59,84 @@
     <script src="./lib/angular.min.js" charset="utf-8"></script>
 
     <script>
-      var players = [
-        {
-          name: 'Player 1',
-          fa: 'fa-circle-o',
-          active: true,
-          fields: []
-        }, {
-          name:'Player 2',
-          fa: 'fa-remove',
-          active: false,
-          fields: []
-        }];
-      var board, activePlayer;
-
-
-      function reset() {
-        // reset players
-        players.forEach(p => p.fields=[]);
-        activePlayer = players[0];
-        // reset board
-        board =[-1,-1,-1,-1,-1,-1,-1,-1,-1];
-        $('.board>div').removeClass('marked').html('');
-
-        displayActivePlayer();
-      }
-      function nextTurn() {
-        var turn = players.indexOf(activePlayer);
-        turn = (turn +1) % players.length;
-        players.forEach( (p, idx) => {
-          p.active = (idx == turn);}
-        );
-        activePlayer = players.find(p => p.active);
-        displayActivePlayer();
-      };
-      function displayActivePlayer() {
-        $('#next').html('<i class="fa ' + activePlayer.fa +'"></i> ' + activePlayer.name);
-      };
-      function checkForResult() {
-        var success = [
-          // rows
-          [0,1,2], [3,4,5] , [6,7,8],
-          // cols
-          [0,3,6], [1,4,7], [2,5,8],
-          // dia
-          [0,4,8],[2,4,6]
-        ];
-        // console.log(board, activePlayer.fields);
-        if(success.find(s =>
-           s.every( t => activePlayer.fields.indexOf(t)>-1)
-         )) {
-           console.log("success !!! " + activePlayer.name + " wins ...");
-           $('.board>div').addClass("marked");
-         };
-      };
-
-      $('.board>div').click(function() {
-        if($(this).hasClass('marked')){
-          console.log('already selected');
-        } else {
-          activePlayer.fields.push($(this).index());
-          board[$(this).index()] = activePlayer.fa;
-          $(this).html('<i class="fa '+ activePlayer.fa + '"></i>');
-          $(this).addClass('marked');
-
-          checkForResult();
-          nextTurn();
-        }
-      });
-      $('#restart').click(function() {
-        reset()
-      });
-
-      reset();
+      // var players = [
+      //   {
+      //     name: 'Player 1',
+      //     fa: 'fa-circle-o',
+      //     active: true,
+      //     fields: []
+      //   }, {
+      //     name:'Player 2',
+      //     fa: 'fa-remove',
+      //     active: false,
+      //     fields: []
+      //   }];
+      // var board, activePlayer;
+      //
+      //
+      // function reset() {
+      //   // reset players
+      //   players.forEach(p => p.fields=[]);
+      //   activePlayer = players[0];
+      //   // reset board
+      //   board =[-1,-1,-1,-1,-1,-1,-1,-1,-1];
+      //   $('.board>div').removeClass('marked').html('');
+      //
+      //   displayActivePlayer();
+      // }
+      // function nextTurn() {
+      //   var turn = players.indexOf(activePlayer);
+      //   turn = (turn +1) % players.length;
+      //   players.forEach( (p, idx) => {
+      //     p.active = (idx == turn);}
+      //   );
+      //   activePlayer = players.find(p => p.active);
+      //   displayActivePlayer();
+      // };
+      // function displayActivePlayer() {
+      //   $('#next').html('<i class="fa ' + activePlayer.fa +'"></i> ' + activePlayer.name);
+      // };
+      // function checkForResult() {
+      //   var success = [
+      //     // rows
+      //     [0,1,2], [3,4,5] , [6,7,8],
+      //     // cols
+      //     [0,3,6], [1,4,7], [2,5,8],
+      //     // dia
+      //     [0,4,8],[2,4,6]
+      //   ];
+      //   // console.log(board, activePlayer.fields);
+      //   if(success.find(s =>
+      //      s.every( t => activePlayer.fields.indexOf(t)>-1)
+      //    )) {
+      //      console.log("success !!! " + activePlayer.name + " wins ...");
+      //      $('.board>div').addClass("marked");
+      //    };
+      // };
+      //
+      // $('.board>div').click(function() {
+      //   if($(this).hasClass('marked')){
+      //     console.log('already selected');
+      //   } else {
+      //     activePlayer.fields.push($(this).index());
+      //     board[$(this).index()] = activePlayer.fa;
+      //     $(this).html('<i class="fa '+ activePlayer.fa + '"></i>');
+      //     $(this).addClass('marked');
+      //
+      //     checkForResult();
+      //     nextTurn();
+      //   }
+      // });
+      // $('#restart').click(function() {
+      //   reset()
+      // });
+      //
+      // reset();
     </script>
     <!-- modules -->
     <script src="./src/tictactoe.module.js" charset="utf-8"></script>
     <!-- components -->
+    <script src="./src/tictactoe.service.js" charset="utf-8"></script>
     <script src="./src/tictactoe.controller.js" charset="utf-8"></script>
   </body>
 </html>

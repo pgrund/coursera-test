@@ -1,6 +1,10 @@
 * {
   box-sizing: border-box;
 }
+footer {
+  position:relative;
+  bottom: -30px;
+}
 footer, footer a {
   color: lightgray;
 }
@@ -71,10 +75,30 @@ div>i {
 .row.board>div:nth-child(-n+6) {
   border-bottom:solid thick darkgray;
 }
-.row.board>div>i.fa {
-  font-size: 3em;
-  color:green;
+div.player.o {
+  color: green;
 }
-.row.board>div>i.fa.fa-remove {
-  color:red;
+div.player.x {
+  color: red;
+}
+.board>div.player>i.fa {
+  font-size: 3em;
+  vertical-align: middle;
+}
+div.player.o i.fa:before {
+  /* fa-circle-o */
+  content: '\f10c';
+  /* fa-user */
+  /*content: '\f007';*/
+}
+div.player.x i.fa:before {
+  /* fa-times */
+  content: '\f00d';
+  /* fa-server */
+  /*content: '\f233';*/
+  /* fa.laptop*/
+  /*content: '\f109';*/
+}
+.row.header {
+  padding-bottom: 1em;
 }
