@@ -21,23 +21,39 @@
       <div class="jumbotron text-center"  ng-controller="SimonController as sCtrl">
         <h1>Simon</h1>
         <div class="container">
-          <div class="col-xs-offset-3 col-xs-6 board">
-            <div class="button" ng-repeat="test in [1,2,3,4]" ng-class="{'active': sCtrl.visibleStep == $index }" ng-click="sCtrl.select($index)"></div>
-            <div id="commands" class="row">
-              <button class="col-xs-offset-3 col-xs-6" ng-click="sCtrl.restart()">start</button>
-              <div class="col-xs-offset-1 col-xs-10">step # {{sCtrl.step}}</div>
-              <div class="col-xs-offset-1 col-xs-10">
-                <label for="strict">strict</label>
-                <input type="checkbox" name="strict" ng-model="sCtrl.strict"></input>
+          <div class="row">
+            <div class="col-xs-3">
+              <i class="fa fa-user fa-4x" ng-show="sCtrl.state.name == 'player'"></i>
+            </div>
+            <div class="col-xs-6 board" ng-class="sCtrl.state.name">
+              <div class="button" ng-repeat="test in [1,2,3,4]" ng-class="{'active': sCtrl.visibleStep == $index }" ng-click="sCtrl.select($index)"></div>
+              <div id="commands" class="row">
+                <div class="col-xs-offset-1 col-xs-10" id="step">step # <span>{{sCtrl.step}}</span><br/></div>
+                <button class="col-xs-offset-2 col-xs-8 btn btn-primary" id="start" ng-click="sCtrl.restart()">start</button>
+                <div class="col-xs-offset-2 col-xs-8" id="strict">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="strict" ng-model="sCtrl.strict" ng-disabled="(!sCtrl.changeable())"> <span ng-hide="sCtrl.strict">not </span>strict
+                    </label>
+                  </div>
+                </div>
               </div>
+            </div>
+            <div class="col-xs-3">
+              <i class="fa fa-desktop fa-4x" ng-show="sCtrl.state.name == 'simon' || sCtrl.state.name == 'init'"></i>
             </div>
           </div>
         </div>
-
-        <div class="text-center" id="messages">
-          <p ng-repeat="msg in sCtrl.messages | orderBy:'time':true" ng-show="$first" title="{{msg.state}}: {{msg.time | date:'MM/dd/yyyy'}}">{{msg.message}}</p>
+        <div class="row">
+          <div class="col-xs-offset-2 col-xs-8 alert alert-{{sCtrl.error.name}} row"  ng-if="sCtrl.error.name">
+            <div class="col-xs-2">
+              <i class="fa fa-3x" ng-class="(sCtrl.error.fa ? sCtrl.error.fa : 'fa-warning')"></i>
+            </div>
+            <div class="col-xs-10">
+              <h3>{{sCtrl.error.description}}</h3>
+            </div>
+          </div>
         </div>
-
         <footer>
         <p>assignment of <a href="https://www.freecodecamp.com/challenges/build-a-simon-game" target="_blank"><i class="fa fa-fire"></i> FreeCode Camp</a></p>
         </footer>
@@ -51,6 +67,8 @@
     <!-- modules -->
     <script src="./src/simon.module.js" charset="utf-8"></script>
     <!-- components -->
+    <script src="./src/simon.const.js" charset="utf-8"></script>
+    <script src="./src/simon.service.js" charset="utf-8"></script>
     <script src="./src/simon.controller.js" charset="utf-8"></script>
   </body>
 </html>
