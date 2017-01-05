@@ -1,0 +1,100 @@
+* {
+  box-sizing: border-box;
+}
+footer {
+  position:relative;
+  bottom: -30px;
+}
+footer, footer a {
+  color: lightgray;
+}
+footer a:hover, footer a:visited  {
+  color: darkgray;
+  text-decoration: none;
+}
+.jumbotron h1 {
+  background: black;
+  color: white;
+}
+header {
+  position:relative;
+}
+div.board {
+  position:relative;
+  width: 400px;
+  height: 400px;
+  padding:0;
+}
+div.board .button {
+  position:absolute;
+  cursor:pointer;
+  border: black solid 10px;
+  height: 200px;
+  width: 200px;
+  margin:0;
+  padding:0;
+}
+div.board .button:active, div.board .button.active  {
+  border: none;
+  box-shadow:0px 0px 10px 12px whitesmoke inset;
+}
+div.board>div,div.board>div.button {
+  padding:0;
+  margin:0;
+}
+/*div.board>div.button:nth-of-type(2n+1) {
+  border-left: solid 15px;
+}
+div.board>div.button:nth-of-type(n+3) {
+  border-bottom: solid 15px;
+}*/
+div.board>div.button:nth-of-type(1) {
+  top:0px;
+  left:0px;
+  border-right: none;
+  border-bottom: none;
+  border-top-left-radius: 100%;
+  background-color: green;
+}
+div.board>div.button:nth-of-type(2) {
+  top:0px;
+  left:200px;
+  border-left: none;
+  border-bottom: none;
+  border-top-right-radius: 100%;
+  background-color: red;
+}
+div.board>div.button:nth-of-type(3) {
+  top:200px;
+  left:0px;
+  border-top: none;
+  border-right: none;
+  border-bottom-left-radius: 100%;
+  background-color: orange;
+}
+div.board>div.button:nth-of-type(4) {
+  top:200px;
+  left:200px;
+  border-top: none;
+  border-left: none;
+  border-bottom-right-radius: 100%;
+  background-color: blue;
+}
+#commands{
+  position:absolute;
+  top: 110px;
+  left: 110px;
+  border:solid 10px black;
+  background-color: white;
+  border-radius: 100%;
+  width:180px;
+  height:180px;
+  padding:20px;
+}
+#messages {
+  /*overflow-y: scroll;
+  height: 2.2em;*/
+}
+#messages > p:nth-child(n+2) {
+  color: darkgray;
+}
